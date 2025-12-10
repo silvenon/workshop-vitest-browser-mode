@@ -1,0 +1,33 @@
+import fs from "node:fs/promises";
+
+test("tsconfig", async () => {
+  const content = await fs.readFile("tsconfig.json", "utf8");
+  expect(content).toMatchInlineSnapshot(`
+    "{
+      // Visit https://aka.ms/tsconfig to read more about this file
+      "compilerOptions": {
+        "noEmit": true,
+        "module": "Preserve",
+        "target": "ES2022",
+        "lib": ["ES2022", "DOM", "DOM.Iterable"],
+        "types": ["vite/client", "vitest/globals"],
+        "noUncheckedIndexedAccess": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitReturns": true,
+        "noImplicitOverride": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "strict": true,
+        "jsx": "react-jsx",
+        "verbatimModuleSyntax": true,
+        "isolatedModules": true,
+        "noUncheckedSideEffectImports": true,
+        "moduleDetection": "force",
+        "skipLibCheck": true
+      }
+    }
+    "
+  `);
+});
